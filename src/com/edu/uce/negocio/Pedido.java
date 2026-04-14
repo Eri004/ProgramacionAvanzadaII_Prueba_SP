@@ -5,17 +5,19 @@ public class Pedido {
     private String cliente;
     private double total;
     private String correo;
+    private String telefono;
 
     public Pedido() {
     
     }
 
     public Pedido(String producto, String cliente, double total,
-         String correo) {
+         String correo,String telefono) {
         this.producto = producto;
         this.cliente = cliente;
         this.total = total;
-        this.correo = correo;   
+        this.correo = correo;
+        this.telefono = telefono;
     }
 
     //etters y setters generados por el increible autor
@@ -50,4 +52,13 @@ public class Pedido {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
 }
