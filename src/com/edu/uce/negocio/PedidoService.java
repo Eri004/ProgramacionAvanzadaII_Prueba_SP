@@ -14,14 +14,23 @@ public class PedidoService {
         notificador.enviar(pedido, "Su pedido ha sido registrado exitosamente");
 
     }
+    
     // Logica de negocio 
     private Notificador seleccionarNotificador(Pedido pedido) {
         if (pedido.getTotal() > 100) {
             System.out.println("El pedido supera los $100, enviando correo de confirmación...");
             return new NotificadorMail();
         }
-
-        System.out.println("El pedido no supera los $100, se enviará SMS de confirmación.");
+        else if(pedido.getTotal() < 50) {
+            //Whatsapp
+            System.out.println("El pedido es menor que $50, enviando mensaje de WhatsApp...");
+            return new NotificadorWhatsapp();
+        }
+        else{
+        System.out.println("El pedido no supera los $100 ni es menor que 50$, se enviará SMS de confirmación.");
         return new NotificadorSMS();
+    } 
     }
+    
+    
 }
